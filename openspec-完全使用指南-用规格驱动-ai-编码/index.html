@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>OpenSpec 完全使用指南：用规格驱动 AI 编码 | Aurora的编程宝典</title>
+    <meta name="generator" content="VuePress 1.9.10">
+    <link rel="icon" href="/favicon.ico">
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?d8117338747ad866788044263c872bde";
+          var s = document.getElementsByTagName("script")[0]; 
+          s.parentNode.insertBefore(hm, s);
+        })();
+      </script>
+    <meta name="description" content="贴心的编程学习路线，全面的编程知识百科">
+    <meta name="keywords" content="程序员Aurora, 编程学习路线, 编程知识百科, Java, 编程导航, 前端, 开发, 编程分享, 项目, IT, 求职, 面经, 面试">
+    
+    <link rel="preload" href="/assets/css/0.styles.c9ce8644.css" as="style"><link rel="preload" href="/assets/js/app.d552c3fc.js" as="script"><link rel="preload" href="/assets/js/2.d050b5fb.js" as="script"><link rel="preload" href="/assets/js/35.569af5f1.js" as="script"><link rel="prefetch" href="/assets/js/1.673ec6d8.js"><link rel="prefetch" href="/assets/js/10.428d3345.js"><link rel="prefetch" href="/assets/js/11.932d26af.js"><link rel="prefetch" href="/assets/js/12.5560a46b.js"><link rel="prefetch" href="/assets/js/13.59c72012.js"><link rel="prefetch" href="/assets/js/14.d0243d51.js"><link rel="prefetch" href="/assets/js/15.9a0a67b8.js"><link rel="prefetch" href="/assets/js/16.b6342ce4.js"><link rel="prefetch" href="/assets/js/17.eb803ed2.js"><link rel="prefetch" href="/assets/js/18.02e7878a.js"><link rel="prefetch" href="/assets/js/19.0609e7a8.js"><link rel="prefetch" href="/assets/js/20.68c43dbf.js"><link rel="prefetch" href="/assets/js/21.5f308f9a.js"><link rel="prefetch" href="/assets/js/22.e559a49f.js"><link rel="prefetch" href="/assets/js/23.4c0f09b2.js"><link rel="prefetch" href="/assets/js/24.c20f3c64.js"><link rel="prefetch" href="/assets/js/25.9c3aba28.js"><link rel="prefetch" href="/assets/js/26.644e3a6a.js"><link rel="prefetch" href="/assets/js/27.01f473ae.js"><link rel="prefetch" href="/assets/js/28.d21f5333.js"><link rel="prefetch" href="/assets/js/29.ac0591df.js"><link rel="prefetch" href="/assets/js/3.0f9a86a5.js"><link rel="prefetch" href="/assets/js/30.2590e7c5.js"><link rel="prefetch" href="/assets/js/31.a061b4f2.js"><link rel="prefetch" href="/assets/js/32.624f6f14.js"><link rel="prefetch" href="/assets/js/33.27269d1d.js"><link rel="prefetch" href="/assets/js/34.878f721e.js"><link rel="prefetch" href="/assets/js/36.f3b12647.js"><link rel="prefetch" href="/assets/js/37.fab7c9d1.js"><link rel="prefetch" href="/assets/js/38.000c6dda.js"><link rel="prefetch" href="/assets/js/39.1a22b4f2.js"><link rel="prefetch" href="/assets/js/4.0c385a8b.js"><link rel="prefetch" href="/assets/js/40.ef9a076d.js"><link rel="prefetch" href="/assets/js/41.8471f261.js"><link rel="prefetch" href="/assets/js/42.39f8990d.js"><link rel="prefetch" href="/assets/js/43.23a09e00.js"><link rel="prefetch" href="/assets/js/44.5f2a2ca9.js"><link rel="prefetch" href="/assets/js/45.cc7d2e26.js"><link rel="prefetch" href="/assets/js/46.51c9ee40.js"><link rel="prefetch" href="/assets/js/47.636aabc3.js"><link rel="prefetch" href="/assets/js/48.b28d615e.js"><link rel="prefetch" href="/assets/js/49.292c051a.js"><link rel="prefetch" href="/assets/js/5.a05f45ed.js"><link rel="prefetch" href="/assets/js/50.e7a17733.js"><link rel="prefetch" href="/assets/js/51.c5031b38.js"><link rel="prefetch" href="/assets/js/52.10f90518.js"><link rel="prefetch" href="/assets/js/6.3d76b201.js"><link rel="prefetch" href="/assets/js/7.992349cd.js"><link rel="prefetch" href="/assets/js/vendors~docsearch.0226c45e.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.c9ce8644.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/logo.png" alt="Aurora的编程宝典" class="logo"> <span class="site-name can-hide">Aurora的编程宝典</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/directory.html" class="nav-link">
+  开始阅读
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="编程分享" class="dropdown-title"><span class="title">编程分享</span> <span class="arrow down"></span></button> <button type="button" aria-label="编程分享" class="mobile-dropdown-title"><span class="title">编程分享</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/编程分享/#入门必看-学习路线" class="nav-link">
+  入门必看-学习路线
+</a></li><li class="dropdown-item"><!----> <a href="/编程分享/#资源推荐" class="nav-link">
+  资源推荐
+</a></li><li class="dropdown-item"><!----> <a href="/编程分享/#技术分享" class="nav-link">
+  技术分享
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="面试专题" class="dropdown-title"><span class="title">面试专题</span> <span class="arrow down"></span></button> <button type="button" aria-label="面试专题" class="mobile-dropdown-title"><span class="title">面试专题</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/面试专题/#Mysql系列" class="nav-link">
+  Mysql系列
+</a></li><li class="dropdown-item"><!----> <a href="/面试专题/#Redis系列" class="nav-link">
+  Redis系列
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Vibe coding" class="dropdown-title"><span class="title">Vibe coding</span> <span class="arrow down"></span></button> <button type="button" aria-label="Vibe coding" class="mobile-dropdown-title"><span class="title">Vibe coding</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Vibe coding/#Skill分享" class="nav-link">
+  Skill分享
+</a></li><li class="dropdown-item"><!----> <a href="/Vibe coding/#实战案例" class="nav-link">
+  实战案例
+</a></li></ul></div></div><div class="nav-item"><a href="/author.html" class="nav-link">
+  作者
+</a></div><div class="nav-item"><a href="https://space.bilibili.com/495003013" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  哔哩哔哩
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <a href="https://github.com/wuhobin" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/directory.html" class="nav-link">
+  开始阅读
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="编程分享" class="dropdown-title"><span class="title">编程分享</span> <span class="arrow down"></span></button> <button type="button" aria-label="编程分享" class="mobile-dropdown-title"><span class="title">编程分享</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/编程分享/#入门必看-学习路线" class="nav-link">
+  入门必看-学习路线
+</a></li><li class="dropdown-item"><!----> <a href="/编程分享/#资源推荐" class="nav-link">
+  资源推荐
+</a></li><li class="dropdown-item"><!----> <a href="/编程分享/#技术分享" class="nav-link">
+  技术分享
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="面试专题" class="dropdown-title"><span class="title">面试专题</span> <span class="arrow down"></span></button> <button type="button" aria-label="面试专题" class="mobile-dropdown-title"><span class="title">面试专题</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/面试专题/#Mysql系列" class="nav-link">
+  Mysql系列
+</a></li><li class="dropdown-item"><!----> <a href="/面试专题/#Redis系列" class="nav-link">
+  Redis系列
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Vibe coding" class="dropdown-title"><span class="title">Vibe coding</span> <span class="arrow down"></span></button> <button type="button" aria-label="Vibe coding" class="mobile-dropdown-title"><span class="title">Vibe coding</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Vibe coding/#Skill分享" class="nav-link">
+  Skill分享
+</a></li><li class="dropdown-item"><!----> <a href="/Vibe coding/#实战案例" class="nav-link">
+  实战案例
+</a></li></ul></div></div><div class="nav-item"><a href="/author.html" class="nav-link">
+  作者
+</a></div><div class="nav-item"><a href="https://space.bilibili.com/495003013" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  哔哩哔哩
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <a href="https://github.com/wuhobin" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><a href="/vibe-coding/" class="sidebar-link">Vibe coding</a></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>Skill分享</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/skill%E5%88%86%E4%BA%AB/" class="sidebar-link">Skill 分享</a></li><li><a href="/%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90-superpowers/" class="sidebar-link">Superpowers 深度教学手册</a></li><li><a href="/openspec-%E5%AE%8C%E5%85%A8%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97-%E7%94%A8%E8%A7%84%E6%A0%BC%E9%A9%B1%E5%8A%A8-ai-%E7%BC%96%E7%A0%81/" aria-current="page" class="active sidebar-link">OpenSpec 完全使用指南：用规格驱动 AI 编码</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/openspec-%E5%AE%8C%E5%85%A8%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97-%E7%94%A8%E8%A7%84%E6%A0%BC%E9%A9%B1%E5%8A%A8-ai-%E7%BC%96%E7%A0%81/#一、ai-编码的真正瓶颈不是代码-是对齐" class="sidebar-link">一、AI 编码的真正瓶颈不是代码，是对齐</a></li><li class="sidebar-sub-header"><a href="/openspec-%E5%AE%8C%E5%85%A8%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97-%E7%94%A8%E8%A7%84%E6%A0%BC%E9%A9%B1%E5%8A%A8-ai-%E7%BC%96%E7%A0%81/#二、安装与初始化" class="sidebar-link">二、安装与初始化</a></li><li class="sidebar-sub-header"><a href="/openspec-%E5%AE%8C%E5%85%A8%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97-%E7%94%A8%E8%A7%84%E6%A0%BC%E9%A9%B1%E5%8A%A8-ai-%E7%BC%96%E7%A0%81/#三、核心理念" class="sidebar-link">三、核心理念</a></li><li class="sidebar-sub-header"><a href="/openspec-%E5%AE%8C%E5%85%A8%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97-%E7%94%A8%E8%A7%84%E6%A0%BC%E9%A9%B1%E5%8A%A8-ai-%E7%BC%96%E7%A0%81/#四、命令详解" class="sidebar-link">四、命令详解</a></li><li class="sidebar-sub-header"><a href="/openspec-%E5%AE%8C%E5%85%A8%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97-%E7%94%A8%E8%A7%84%E6%A0%BC%E9%A9%B1%E5%8A%A8-ai-%E7%BC%96%E7%A0%81/#五、不同场景下怎么用-实战指南" class="sidebar-link">五、不同场景下怎么用：实战指南</a></li><li class="sidebar-sub-header"><a href="/openspec-%E5%AE%8C%E5%85%A8%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97-%E7%94%A8%E8%A7%84%E6%A0%BC%E9%A9%B1%E5%8A%A8-ai-%E7%BC%96%E7%A0%81/#六、归档-变更的完整生命周期" class="sidebar-link">六、归档：变更的完整生命周期</a></li><li class="sidebar-sub-header"><a href="/openspec-%E5%AE%8C%E5%85%A8%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97-%E7%94%A8%E8%A7%84%E6%A0%BC%E9%A9%B1%E5%8A%A8-ai-%E7%BC%96%E7%A0%81/#七、两种-profile-怎么选" class="sidebar-link">七、两种 Profile 怎么选</a></li><li class="sidebar-sub-header"><a href="/openspec-%E5%AE%8C%E5%85%A8%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97-%E7%94%A8%E8%A7%84%E6%A0%BC%E9%A9%B1%E5%8A%A8-ai-%E7%BC%96%E7%A0%81/#八、最佳实践" class="sidebar-link">八、最佳实践</a></li><li class="sidebar-sub-header"><a href="/openspec-%E5%AE%8C%E5%85%A8%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97-%E7%94%A8%E8%A7%84%E6%A0%BC%E9%A9%B1%E5%8A%A8-ai-%E7%BC%96%E7%A0%81/#九、命令速查表" class="sidebar-link">九、命令速查表</a></li><li class="sidebar-sub-header"><a href="/openspec-%E5%AE%8C%E5%85%A8%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97-%E7%94%A8%E8%A7%84%E6%A0%BC%E9%A9%B1%E5%8A%A8-ai-%E7%BC%96%E7%A0%81/#参考资料" class="sidebar-link">参考资料</a></li></ul></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>实战案例</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <!----> <!----> <main class="page"> <div class="content"><div style="width:100%"><div class="theme-default-content custom-content content__default"><h1 id="openspec-完全使用指南-用规格驱动-ai-编码"><a href="#openspec-完全使用指南-用规格驱动-ai-编码" class="header-anchor">#</a> OpenSpec 完全使用指南：用规格驱动 AI 编码</h1> <blockquote><p>如果你正在用 AI 写代码，却总觉得&quot;沟通成本&quot;比&quot;写代码&quot;还高——OpenSpec 可能是你一直缺的那块拼图。本文是我整理的我日常使用OpenSpec的实战指南。</p></blockquote> <hr> <h2 id="一、ai-编码的真正瓶颈不是代码-是对齐"><a href="#一、ai-编码的真正瓶颈不是代码-是对齐" class="header-anchor">#</a> 一、AI 编码的真正瓶颈不是代码，是对齐</h2> <p>用 AI 结对编程一段时间后，你大概率会遇到几个反复出现的问题：</p> <p>你花了两段话描述一个功能，AI 听起来像是懂了，写出来的代码却跑偏了。你纠偏、它重来，几轮下来上下文窗口已经被消耗大半，真正写代码的空间反而不剩多少。</p> <p>更痛的是，好不容易和 AI 对齐了设计思路，实现完一个功能。过两天打开新对话继续下一个功能，之前的所有讨论、决策、设计全部蒸发。你又要从头解释项目背景、技术栈、已有的架构约束。</p> <p>还有一种情况：功能做到一半被打断了——开会、下班、切去修一个 Bug。回来打开新对话，AI 完全不知道你之前做到哪了，你只能翻代码找线索，手动拼凑上下文。</p> <p><strong>这些痛点的根源都一样：AI 的&quot;记忆&quot;只存在于当前对话中。对话关了，一切归零。</strong></p> <blockquote><p>OpenSpec 的思路很朴素：既然对话会消失，那就把重要的东西写成文件。需求是什么、技术方案怎么设计、实现步骤有哪些——全部以 Markdown 文件持久化在项目里。AI 每次开工，不是从你的口头描述出发，而是从这份&quot;共识文档&quot;出发。</p></blockquote> <hr> <h2 id="二、安装与初始化"><a href="#二、安装与初始化" class="header-anchor">#</a> 二、安装与初始化</h2> <h3 id="前置要求"><a href="#前置要求" class="header-anchor">#</a> 前置要求</h3> <ul><li>Node.js 20.19.0+</li></ul> <h3 id="安装"><a href="#安装" class="header-anchor">#</a> 安装</h3> <div class="language-bash extra-class"><pre class="language-bash"><code>
+<span class="token function">npm</span> <span class="token function">install</span> <span class="token parameter variable">-g</span> @fission-ai/openspec@latest
+</code></pre></div><h3 id="初始化项目"><a href="#初始化项目" class="header-anchor">#</a> 初始化项目</h3> <div class="language-bash extra-class"><pre class="language-bash"><code>
+<span class="token builtin class-name">cd</span> your-project
+openspec init
+</code></pre></div><p>初始化时 CLI 会问你使用哪些 AI 工具（Claude Code、Cursor、Copilot 等），然后自动往对应目录写入 Skill 和斜杠命令文件。完成后项目里多出一个 openspec/ 目录：</p> <div class="language-bash extra-class"><pre class="language-bash"><code>
+openspec/
+├── specs/        <span class="token comment"># 系统当前行为的&quot;源真相&quot;（Source of Truth）</span>
+├── changes/      <span class="token comment"># 每个变更的独立工作目录</span>
+└── config.yaml   <span class="token comment"># 项目配置</span>
+</code></pre></div><h3 id="配置项目上下文-强烈推荐"><a href="#配置项目上下文-强烈推荐" class="header-anchor">#</a> 配置项目上下文（强烈推荐）</h3> <p>这一步经常被跳过，但它对工件质量影响巨大。在 openspec/config.yaml 里告诉 AI 你的项目是什么样的：</p> <div class="language-yaml extra-class"><pre class="language-yaml"><code>
+<span class="token key atrule">schema</span><span class="token punctuation">:</span> spec<span class="token punctuation">-</span>driven
+
+<span class="token key atrule">context</span><span class="token punctuation">:</span> <span class="token punctuation">|</span><span class="token scalar string">
+  技术栈：TypeScript、React 18、Node.js、PostgreSQL
+  API 风格：RESTful，文档在 docs/api.md
+  测试框架：Vitest + React Testing Library
+  代码规范：参考 .eslintrc.js</span>
+
+<span class="token key atrule">rules</span><span class="token punctuation">:</span>
+  <span class="token key atrule">proposal</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> 必须包含回滚方案
+    <span class="token punctuation">-</span> 标注影响的模块范围
+  <span class="token key atrule">specs</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> 使用 Given/When/Then 格式描述测试场景
+</code></pre></div><p><code>context</code> 会注入到所有工件的生成过程中——相当于一次配置，以后再也不用在对话开头反复交代&quot;我们用的是 React + TypeScript&quot;了。rules 则是针对特定工件类型的额外要求。</p> <p>可以让 AI 先生成，然后自己修改：</p> <div class="language-bash extra-class"><pre class="language-bash"><code>
+Please <span class="token builtin class-name">read</span> openspec/config.yaml and <span class="token builtin class-name">help</span> me fill it out
+with details about my project, tech stack, and conventions
+</code></pre></div><p>让大语言模型分析代码，生成 project.md，但是代理可能会读取它，也可能不会，甚至可能忘记读取的内容。我们发现可靠性不一致。所以最好将有用信息移至 openspec/config.yaml</p> <p>迁移说明：https://github.com/Fission-AI/OpenSpec/blob/main/docs/migration-guide.md</p> <h3 id="启用扩展命令"><a href="#启用扩展命令" class="header-anchor">#</a> 启用扩展命令</h3> <p>默认只安装了 4 个核心命令（<code>propose、explore、apply、archive</code>）。如果你想要更精细的控制，可以解锁完整命令集：</p> <div class="language-bash extra-class"><pre class="language-bash"><code>
+openspec config profile
+openspec update
+</code></pre></div><p>选择 Expanded Profile 后，new、continue、ff、verify、sync、bulk-archive、onboard 等高级命令就可以用了。</p> <hr> <h2 id="三、核心理念"><a href="#三、核心理念" class="header-anchor">#</a> 三、核心理念</h2> <p>要理解 OpenSpec，先从它试图解决的根本问题说起。</p> <h3 id="为什么要先写-规格-再写代码"><a href="#为什么要先写-规格-再写代码" class="header-anchor">#</a> 为什么要先写&quot;规格&quot;再写代码？</h3> <p>传统的 AI 编码工作流是这样的：你在对话框里描述需求，AI 直接开始写代码。这个过程看起来很快，但有个隐性成本——你和 AI 对&quot;做什么&quot;的理解可能从一开始就不一致，而这种不一致直到代码写完、你去验收的时候才会暴露。</p> <p>OpenSpec 的核心主张是：在写代码之前，先花一点时间把&quot;要做什么&quot;用结构化的方式写下来。这份文档不是给人看的需求文档，而是给 AI 看的行为契约——它告诉 AI 系统应该表现出什么行为，AI 基于这份契约去写代码，你基于这份契约去验收。</p> <p>这就像是建筑施工前的图纸：不是限制你发挥，而是让所有人（包括 AI）知道我们在建同一栋楼。</p> <h3 id="四个设计原则"><a href="#四个设计原则" class="header-anchor">#</a> 四个设计原则</h3> <p>OpenSpec 不搞大而全的流程框架，它对自己的定位非常克制：</p> <ul><li><strong>灵活，而非死板</strong>——没有&quot;规划阶段不许写代码&quot;这种锁定。写到一半发现 specs 不对？回去改就是了。这不是瀑布流程，不存在&quot;阶段门禁&quot;</li> <li><strong>迭代，而非瀑布</strong>——不要求你一次把所有事情想清楚。先写个大概，边做边完善，需求本来就是在实现过程中才逐渐清晰的</li> <li><strong>简单，而非复杂</strong>——就是几个 Markdown 文件，没有数据库、没有服务端、没有 Dashboard。openspec init 之后就能用</li> <li><strong>存量优先</strong>——绝大多数人不是在写全新项目，而是在改已有代码。OpenSpec 从第一天起就为&quot;改存量系统&quot;设计，而不是只能在空白项目上玩的&quot;理想流程&quot;</li></ul> <h3 id="两个核心概念-specs-和-changes"><a href="#两个核心概念-specs-和-changes" class="header-anchor">#</a> 两个核心概念：Specs 和 Changes</h3> <p>OpenSpec 的整个体系建立在一个简单的二分法上：</p> <div class="language-bash extra-class"><pre class="language-bash"><code>
+openspec/
+├── specs/          ← <span class="token string">&quot;系统现在是什么样的&quot;</span>
+│   ├── auth/
+│   ├── payments/
+│   └── <span class="token punctuation">..</span>.
+└── changes/        ← <span class="token string">&quot;我们打算改什么&quot;</span>
+    ├── add-dark-mode/
+    └── fix-login-bug/
+</code></pre></div><ul><li><strong>Specs（主规格）</strong> 是系统当前行为的权威描述——&quot;源真相&quot;。它回答的是&quot;系统现在是怎么运作的&quot;。</li> <li><strong>Changes（变更）</strong> 是你正在进行的修改——每个功能、每个 Bug 修复独立一个文件夹，互不干扰。它回答的是&quot;我们打算怎么改&quot;。</li></ul> <p>当一个变更完成并归档后，它里面的规格变化会合并进 specs——主规格因此更新，变更则移入归档目录。这样，specs 始终反映系统的&quot;最新真实状态&quot;。</p> <p>这个分离设计有一个很大的好处：你可以同时推进多个变更而互不冲突——它们各自在自己的文件夹里工作，不会互相干扰 specs。</p> <h3 id="specs-到底长什么样"><a href="#specs-到底长什么样" class="header-anchor">#</a> Specs 到底长什么样？</h3> <p>很多人一听&quot;规格&quot;就觉得是厚重的文档。OpenSpec 的 specs 其实很轻量，核心就两个部分：需求（Requirements）和场景（Scenarios）。</p> <p>需求用 RFC 2119 的关键字来表达意图强度：</p> <div class="language-markdown extra-class"><pre class="language-markdown"><code>
+<span class="token title important"><span class="token punctuation">##</span> Purpose</span>
+用户认证模块，管理登录、登出和会话维护。
+
+<span class="token title important"><span class="token punctuation">###</span> Requirement: Login Authentication</span>
+系统 MUST 在用户提供有效凭证时签发 JWT token。
+系统 MUST 在凭证无效时返回 401 错误，且不泄露是用户名还是密码错误。
+系统 SHOULD 在连续 5 次失败后触发临时锁定。
+系统 MAY 支持&quot;记住我&quot;功能以延长 token 有效期。
+</code></pre></div><p>这里的关键字有明确含义：MUST = 必须实现，不实现就是 Bug；SHOULD = 强烈建议，除非有充分理由可以不做；MAY = 可选的增强功能。这不是文字游戏，而是在告诉 AI 和你自己：哪些是底线，哪些是锦上添花。</p> <p>场景是具体的测试用例，用 Given/When/Then 格式描述：</p> <div class="language-markdown extra-class"><pre class="language-markdown"><code>
+<span class="token title important"><span class="token punctuation">####</span> Scenario: Successful Login</span>
+Given 用户名 &quot;alice&quot; 存在且密码正确
+When 用户提交登录请求
+Then 系统返回 200 和有效的 JWT token
+And token 有效期为 24 小时
+
+<span class="token title important"><span class="token punctuation">####</span> Scenario: Invalid Password</span>
+Given 用户名 &quot;alice&quot; 存在但密码错误
+When 用户提交登录请求
+Then 系统返回 401
+And 错误信息不区分&quot;用户不存在&quot;和&quot;密码错误&quot;
+</code></pre></div><p>特别重要的一点：specs 只描述外部可观察的行为，不描述内部实现。比如&quot;用 bcrypt 加密密码&quot;不该出现在 specs 里（那是 design 的事），但&quot;密码不得以明文存储&quot;可以——因为这是一个可验证的外部约束。判断标准很简单：如果你把底层实现换了（比如从 bcrypt 换成 argon2），但系统对外的行为没有任何变化，那这个东西就不该出现在 specs 里。</p> <h3 id="工件-artifacts-从-为什么-到-怎么做"><a href="#工件-artifacts-从-为什么-到-怎么做" class="header-anchor">#</a> 工件（Artifacts）：从&quot;为什么&quot;到&quot;怎么做&quot;</h3> <p>每个变更包含 4 个工件，它们之间有明确的依赖关系：</p> <div class="language- extra-class"><pre class="language-text"><code>
+proposal.md  →  specs/  →  design.md  →  tasks.md
+   为什么做？     做什么？     怎么做？       具体步骤
+</code></pre></div><ul><li><strong>proposal.md</strong>：回答&quot;为什么要做这件事&quot;——动机、范围（做什么和不做什么）、预期收益。它是后续所有工件的出发点</li> <li><strong>specs/</strong>：回答&quot;系统行为会怎么改变&quot;——用 Delta Specs 描述新增、修改、删除了哪些行为（下面详细说）</li> <li><strong>design.md</strong>：回答&quot;技术上怎么实现&quot;——架构决策、组件设计、技术选型的理由</li> <li><strong>tasks.md</strong>：回答&quot;具体要干哪几件事&quot;——带复选框的实现清单，AI 在 /opsx:apply 时逐条执行</li></ul> <p>这个依赖关系是&quot;使能&quot;而不是&quot;门禁&quot;。意思是：有了 proposal 才能生成 specs，有了 specs 才能生成 design——但这是 AI 生成工件时需要的输入，而不是说你必须按这个顺序来。你完全可以先写 design 再补 specs，或者直接跳到 tasks。流程是灵活的，只不过按推荐顺序走效果最好，因为每一步都在为下一步提供信息基础。</p> <h3 id="delta-specs-改存量代码的秘密武器"><a href="#delta-specs-改存量代码的秘密武器" class="header-anchor">#</a> Delta Specs：改存量代码的秘密武器</h3> <p>如果每次修改一个功能就要把整个系统的规格重写一遍，没人会用这个工具。OpenSpec 用增量规格（Delta Specs）解决了这个问题——你只需要描述&quot;这次改了什么&quot;，而不是重新描述整个系统。</p> <p>每个变更的 specs/ 子目录里存放的是三类变化：</p> <div class="language-markdown extra-class"><pre class="language-markdown"><code>
+<span class="token title important"><span class="token punctuation">##</span> ADDED Requirements</span>
+
+<span class="token title important"><span class="token punctuation">###</span> Requirement: Theme Switching</span>
+系统 MUST 提供深色/浅色主题切换功能。
+系统 SHOULD 支持跟随操作系统主题设置。
+
+<span class="token title important"><span class="token punctuation">####</span> Scenario: Manual Theme Switch</span>
+Given 用户当前使用浅色主题
+When 用户点击主题切换开关
+Then 界面切换为深色主题
+And 选择结果持久化到 localStorage
+
+<span class="token title important"><span class="token punctuation">##</span> MODIFIED Requirements</span>
+
+<span class="token title important"><span class="token punctuation">###</span> Requirement: Page Background (MODIFIED)</span>
+<span class="token list punctuation">-</span> 原：系统 MUST 使用固定白色背景（#FFFFFF）
+<span class="token list punctuation">-</span> 新：系统 MUST 根据当前主题设置显示对应的背景色
+
+<span class="token title important"><span class="token punctuation">##</span> REMOVED Requirements</span>
+
+<span class="token title important"><span class="token punctuation">###</span> Requirement: Fixed Color Scheme (REMOVED)</span>
+<span class="token list punctuation">-</span> 原：系统 MUST 使用预设的固定配色方案
+<span class="token list punctuation">-</span> 原因：被新的主题系统取代
+</code></pre></div><p>归档时，这些增量会自动合并进 openspec/specs/ 主规格——ADDED 的内容追加进去，MODIFIED 的内容替换旧版本，REMOVED 的内容被移除。</p> <p>这个设计有三个实际好处：</p> <ul><li><strong>看变更一目了然</strong>——审查的时候，你不需要对比两个大文件找差异，Delta Specs 直接告诉你改了什么</li> <li><strong>并行开发不冲突</strong>——两个变更可以同时修改同一个模块的规格，因为它们各自描述的是&quot;我改了什么&quot;，而不是&quot;整个模块应该长什么样&quot;</li> <li><strong>存量项目友好</strong>——你不需要先给整个系统写一份完整规格才能开始用 OpenSpec，直接从第一个变更开始就行，specs 会随着归档逐渐积累</li></ul> <h3 id="schema-定义你自己的工作流"><a href="#schema-定义你自己的工作流" class="header-anchor">#</a> Schema：定义你自己的工作流</h3> <p>默认情况下，OpenSpec 使用 spec-driven 这个内置 schema：工件按 proposal → specs → design → tasks 的顺序生成。但不是所有团队都适合这个流程。</p> <p>比如，你的团队可能习惯&quot;先调研再立项&quot;——在写 proposal 之前先做一轮技术调研。你可以创建一个自定义 schema，在 proposal 前面加一个 research.md 工件：</p> <div class="language-bash extra-class"><pre class="language-bash"><code>
+openspec schema fork spec-driven research-first
+</code></pre></div><p>这会把默认 schema 复制一份供你修改，你可以自定义工件类型、依赖关系和生成模板。</p> <p>对大多数人来说，默认的 spec-driven schema 完全够用。自定义 schema 是留给有特殊流程需求的团队的进阶功能。</p> <h3 id="渐进式严格-不需要一步到位"><a href="#渐进式严格-不需要一步到位" class="header-anchor">#</a> 渐进式严格：不需要一步到位</h3> <p>OpenSpec 官方推荐的是&quot;渐进式严格&quot;——先轻后重：</p> <ul><li><strong>日常开发（Lite Spec）</strong>：大多数变更只需要简短的行为描述、清晰的范围界定和基本的验收条件。不需要写得多详细，够 AI 理解你要干什么就行。</li> <li><strong>高风险变更（Full Spec）</strong>：涉及跨团队协作、API 变更、数据迁移等场景时，值得写更详尽的规格——完整的 Given/When/Then 场景、边界条件分析、错误处理路径。因为这些场景下，规格中的任何模糊都可能变成代价昂贵的返工。</li></ul> <p>判断标准很简单：如果这个变更搞砸了的返工成本很高，就多花点时间写规格；如果改错了 5 分钟就能修好，那写个大概就够了。</p> <hr> <h2 id="四、命令详解"><a href="#四、命令详解" class="header-anchor">#</a> 四、命令详解</h2> <h3 id="核心命令-core-profile-默认可用"><a href="#核心命令-core-profile-默认可用" class="header-anchor">#</a> 核心命令（Core Profile，默认可用）</h3> <h4 id="opsx-propose-需求清晰时-一步到位"><a href="#opsx-propose-需求清晰时-一步到位" class="header-anchor">#</a> /opsx:propose — 需求清晰时，一步到位</h4> <p>你已经想好了要做什么，直接告诉 AI，它会一口气生成全套工件（proposal → specs → design → tasks）：</p> <div class="language- extra-class"><pre class="language-text"><code>
+You: /opsx:propose 用户可以通过 GitHub OAuth 登录，
+     登录后自动创建账号，支持关联已有邮箱账号
+
+AI:  Analyzing codebase and requirements...
+     ✓ Created openspec/changes/add-github-oauth/
+     ✓ proposal.md — scope &amp; intent
+     ✓ specs/auth.md — delta specs for authentication
+     ✓ design.md — OAuth flow, token handling, account linking
+     ✓ tasks.md — 8 implementation tasks
+     Ready for review!
+</code></pre></div><p>生成完之后，花几分钟扫一遍工件——尤其是 tasks.md 的拆分是否合理、specs/ 有没有遗漏边界条件。这个阶段改方案比写完代码再改要便宜得多。</p> <h4 id="opsx-explore-不确定的时候-先探索"><a href="#opsx-explore-不确定的时候-先探索" class="header-anchor">#</a> /opsx:explore — 不确定的时候，先探索</h4> <p>还没想清楚要做什么，或者在几个方案之间纠结？用 explore 让 AI 先帮你搞清楚情况，不会创建任何文件，零副作用：</p> <div class="language- extra-class"><pre class="language-text"><code>
+You: /opsx:explore 我们应该用 WebSocket 还是 SSE 来实现实时通知？
+     请分析当前的架构，评估两种方案
+
+AI:  Let me investigate your codebase...
+
+     Found: Express server on port 3000, nginx reverse proxy,
+     Redis for session store, no existing WebSocket infrastructure.
+
+     Comparison:
+     • WebSocket: bidirectional, but requires nginx upgrade config
+       and separate connection management
+     • SSE: simpler, works through existing HTTP stack, sufficient
+       for server→client push notifications
+
+     Recommendation: SSE for your use case. Your notifications are
+     all server-initiated, and SSE avoids the infrastructure changes
+     WebSocket would require.
+
+You: 好的，就用 SSE。那就开始吧。
+
+You: /opsx:propose implement-sse-notifications
+</code></pre></div><p>explore 完成后可以自然衔接到 propose 或 new，之前的调研结论会成为 AI 生成工件的基础。</p> <h4 id="opsx-apply-按清单执行实现"><a href="#opsx-apply-按清单执行实现" class="header-anchor">#</a> /opsx:apply — 按清单执行实现</h4> <p>工件准备好了，让 AI 按 tasks.md 里的清单逐条干活：</p> <div class="language- extra-class"><pre class="language-text"><code>
+You: /opsx:apply add-github-oauth
+
+AI:  Reading tasks.md... Found 8 tasks, 0 completed.
+
+     Working on task 1: Install passport-github2 dependency
+     ✓ Added to package.json, ran npm install
+
+     Working on task 2: Create OAuth strategy configuration
+     ✓ Created src/auth/github-strategy.ts
+
+     Working on task 3: Add callback route handler
+     ✓ Added /auth/github/callback to router
+     ...
+     All 8 tasks complete!
+</code></pre></div><p>每完成一项，AI 会在 tasks.md 里打上勾。如果中途被打断（关对话、切任务），下次只要重新执行 /opsx:apply，它会从未完成的任务接着来。</p> <h4 id="opsx-archive-收尾归档"><a href="#opsx-archive-收尾归档" class="header-anchor">#</a> /opsx:archive — 收尾归档</h4> <p>功能实现完了，归档这个变更：</p> <div class="language- extra-class"><pre class="language-text"><code>
+You: /opsx:archive add-github-oauth
+
+AI:  Checking change status...
+     ✓ All 8 tasks completed
+     ✓ Syncing delta specs to openspec/specs/auth.md
+     ✓ Archived to openspec/archive/2026-02-27_add-github-oauth/
+     Change closed.
+</code></pre></div><p>归档做了三件事：</p> <ol><li>把 Delta Specs 合并进 openspec/specs/ 主规格——系统的&quot;行为手册&quot;因此更新</li> <li>把变更目录整体移到带时间戳的归档目录，留作审计记录</li> <li>这个变更的生命周期正式结束</li></ol> <p>归档前建议先跑一次 /opsx:verify（见下文），确认实现和规格没有出入。</p> <h3 id="扩展命令-需启用-expanded-profile"><a href="#扩展命令-需启用-expanded-profile" class="header-anchor">#</a> 扩展命令（需启用 Expanded Profile）</h3> <h4 id="opsx-new-只建骨架-不急着填内容"><a href="#opsx-new-只建骨架-不急着填内容" class="header-anchor">#</a> /opsx:new — 只建骨架，不急着填内容</h4> <p>和 propose 不同，new 只创建变更目录和元数据，不生成任何工件内容。适合你想手动控制节奏的时候：</p> <div class="language- extra-class"><pre class="language-text"><code>
+You: /opsx:new add-logout-button
+
+AI:  Created openspec/changes/add-logout-button/
+     Ready to create: proposal
+</code></pre></div><p>后续用 /opsx:continue 或 /opsx:ff 来生成工件。</p> <h4 id="opsx-continue-一步一步来-每步都能审查"><a href="#opsx-continue-一步一步来-每步都能审查" class="header-anchor">#</a> /opsx:continue — 一步一步来，每步都能审查</h4> <p>每次执行生成一个工件，按依赖链推进。适合需求还在打磨中、每一步都想看看再说的情况：</p> <div class="language- extra-class"><pre class="language-text"><code>
+You: /opsx:continue add-logout-button
+
+AI:  Creating proposal.md...
+     ✓ proposal.md created
+     Next artifact: specs
+
+You: （审查 proposal，发现范围需要调整，手动编辑）
+
+You: /opsx:continue add-logout-button
+
+AI:  Creating specs/...
+     ✓ specs/session.md created (delta)
+     Next artifact: design
+
+You: /opsx:continue add-logout-button
+
+AI:  Creating design.md...
+     ✓ design.md created
+     Next artifact: tasks
+
+You: /opsx:continue add-logout-button
+
+AI:  Creating tasks.md...
+     ✓ tasks.md created — 4 implementation tasks
+     All planning artifacts complete. Ready for /opsx:apply
+</code></pre></div><h4 id="opsx-ff-快进生成所有剩余工件"><a href="#opsx-ff-快进生成所有剩余工件" class="header-anchor">#</a> /opsx:ff — 快进生成所有剩余工件</h4> <p>和 continue 对应——如果你已经确认方向没问题，不想一个个审查，直接快进补全所有剩余工件：</p> <div class="language- extra-class"><pre class="language-text"><code>
+You: /opsx:new add-logout-button
+
+AI:  Created openspec/changes/add-logout-button/
+     Ready to create: proposal
+
+You: /opsx:ff
+
+AI:  Creating all planning artifacts...
+     ✓ proposal.md
+     ✓ specs/
+     ✓ design.md
+     ✓ tasks.md
+     Ready for implementation!
+</code></pre></div><p>ff 和 propose 的区别是：ff 可以在已有部分工件的情况下&quot;快进补全&quot;，而 propose 是从零开始一步到位。</p> <p><strong>什么时候用 ff，什么时候用 continue？</strong> 简单说：</p> <ul><li>需求清晰、能一口气描述完 → ff</li> <li>需求还在打磨、想每步审查 → continue</li> <li>赶时间 → ff</li> <li>复杂变更、需要精细控制 → continue</li></ul> <h4 id="opsx-verify-归档前的质量检查"><a href="#opsx-verify-归档前的质量检查" class="header-anchor">#</a> /opsx:verify — 归档前的质量检查</h4> <p>让 AI 拿着规格去对照实际代码，从三个维度报告问题：</p> <div class="language- extra-class"><pre class="language-text"><code>
+You: /opsx:verify add-logout-button
+
+AI:  Verifying implementation against specs...
+
+     ✅ Completeness: 4/4 tasks done, all scenarios covered
+     ⚠️ Correctness: WARNING — logout doesn't clear localStorage
+        (spec requires clearing all client-side session data)
+     ✅ Coherence: Design patterns consistent
+
+     1 issue found. Recommend fixing before archive.
+</code></pre></div><table><thead><tr><th>维度</th> <th>检查什么</th></tr></thead> <tbody><tr><td>完整性</td> <td>所有任务是否完成？需求场景是否覆盖？</td></tr> <tr><td>正确性</td> <td>实现是否匹配规格意图？边界条件是否处理？</td></tr> <tr><td>一致性</td> <td>代码结构是否反映设计决策？命名和模式是否统一？</td></tr></tbody></table> <p>verify 的报告分为 CRITICAL、WARNING、SUGGESTION 三个级别。它不会阻止你归档，但归档前跑一次能帮你抓住很多遗漏。</p> <h4 id="opsx-sync-只同步规格-不归档"><a href="#opsx-sync-只同步规格-不归档" class="header-anchor">#</a> /opsx:sync — 只同步规格，不归档</h4> <p>有时候一个变更还在进行中，但你希望它的规格先合并进主规格（比如另一个并行变更需要引用）：</p> <div class="language- extra-class"><pre class="language-text"><code>
+You: /opsx:sync add-logout-button
+
+AI:  Merging delta specs into main specs...
+     ✓ openspec/specs/session.md updated
+     Change remains active (not archived).
+</code></pre></div><p>变更目录不动，你可以继续修改它。</p> <h4 id="opsx-bulk-archive-并行开发后的批量收尾"><a href="#opsx-bulk-archive-并行开发后的批量收尾" class="header-anchor">#</a> /opsx:bulk-archive — 并行开发后的批量收尾</h4> <p>同时做了好几个功能，都完成了？一次性全部归档，它会自动检测并解决不同变更之间的规格冲突：</p> <div class="language- extra-class"><pre class="language-text"><code>
+You: /opsx:bulk-archive
+
+AI:  Found 3 completed changes:
+     • add-logout-button (4/4 tasks)
+     • fix-session-timeout (3/3 tasks)
+     • update-user-profile (6/6 tasks)
+
+     Checking for spec conflicts...
+     ⚠️ Conflict in specs/session.md between
+        add-logout-button and fix-session-timeout
+     → Resolved by checking actual implementation
+
+     ✓ All 3 changes archived.
+</code></pre></div><h4 id="opsx-onboard-交互式上手教程"><a href="#opsx-onboard-交互式上手教程" class="header-anchor">#</a> /opsx:onboard — 交互式上手教程</h4> <p>第一次用 OpenSpec？让它用你的真实代码库走一遍完整流程：</p> <div class="language- extra-class"><pre class="language-text"><code>
+You: /opsx:onboard
+
+AI:  Welcome to OpenSpec! Let's walk through the workflow
+     using your actual codebase...
+</code></pre></div><h3 id="cli-工具命令"><a href="#cli-工具命令" class="header-anchor">#</a> CLI 工具命令</h3> <p>这些在终端里用，日常管理少不了：</p> <div class="language-bash extra-class"><pre class="language-bash"><code>
+openspec list                    <span class="token comment"># 查看所有活跃变更</span>
+openspec view                    <span class="token comment"># 交互式仪表盘</span>
+openspec show add-dark-mode      <span class="token comment"># 查看某个变更的详情</span>
+openspec status add-dark-mode    <span class="token comment"># 查看工件完成进度</span>
+openspec validate <span class="token parameter variable">--all</span> <span class="token parameter variable">--strict</span> <span class="token comment"># 检查所有变更和规格的格式</span>
+openspec archive add-dark-mode   <span class="token comment"># 从终端归档</span>
+openspec config profile          <span class="token comment"># 切换 Profile</span>
+</code></pre></div><hr> <h2 id="五、不同场景下怎么用-实战指南"><a href="#五、不同场景下怎么用-实战指南" class="header-anchor">#</a> 五、不同场景下怎么用：实战指南</h2> <p>命令本身不复杂，关键在于不同场景下怎么组合。下面是我总结的几种典型场景和对应的最佳路径。</p> <h3 id="场景一-需求清晰-直接开干"><a href="#场景一-需求清晰-直接开干" class="header-anchor">#</a> 场景一：需求清晰，直接开干</h3> <p>你已经想好了要做什么、做成什么样，只需要 AI 来执行。</p> <p><strong>Core Profile 路径（最快）：</strong></p> <div class="language- extra-class"><pre class="language-text"><code>/opsx:propose → 审查 → /opsx:apply → /opsx:verify → /opsx:archive
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>You: /opsx:propose 在用户设置页面添加深色模式开关，
+     支持跟随系统主题，选择结果持久化到 localStorage
+
+AI:  ✓ Created openspec/changes/add-dark-mode/
+     ✓ proposal.md — scope &amp; intent
+     ✓ specs/ui-theme.md — delta specs
+     ✓ design.md — CSS variables approach, theme context
+     ✓ tasks.md — 6 implementation tasks
+     Ready for review!
+
+You: （扫了一遍 tasks.md，拆分合理，specs 覆盖了跟随系统和手动切换两种场景）
+
+You: /opsx:apply add-dark-mode
+
+AI:  Working through tasks...
+     ✓ Created ThemeContext with system preference detection
+     ✓ Added CSS variables for light/dark themes
+     ✓ Implemented toggle switch in Settings page
+     ✓ Added localStorage persistence
+     ✓ Updated existing components to use theme variables
+     ✓ Added transition animations
+     All 6 tasks complete!
+
+You: /opsx:verify add-dark-mode
+
+AI:  ✅ Completeness: 6/6 tasks, all scenarios covered
+     ✅ Correctness: Matches spec intent
+     ✅ Coherence: Consistent use of CSS variables
+     No issues found.
+
+You: /opsx:archive add-dark-mode
+
+AI:  ✓ Synced delta specs → openspec/specs/ui-theme.md
+     ✓ Archived to openspec/archive/2026-02-27_add-dark-mode/
+</code></pre></div><p><strong>Expanded Profile 路径（更可控）：</strong></p> <p>如果你喜欢把&quot;创建变更&quot;和&quot;生成工件&quot;分开，可以用 new + ff：</p> <div class="language- extra-class"><pre class="language-text"><code>You: /opsx:new add-dark-mode
+
+AI:  Created openspec/changes/add-dark-mode/
+     Ready to create: proposal
+
+You: /opsx:ff
+
+AI:  Creating all planning artifacts...
+     ✓ proposal.md
+     ✓ specs/
+     ✓ design.md
+     ✓ tasks.md
+     Ready for implementation!
+
+You: /opsx:apply
+
+AI:  Working through tasks...
+     ✓ All 6 tasks complete!
+
+You: /opsx:verify
+
+AI:  No issues found.
+
+You: /opsx:archive
+
+AI:  ✓ Merged specs
+     ✓ Archived change
+</code></pre></div><p>这两条路径效果一样，区别只在于 propose 是一步到位，而 new + ff 让你在创建骨架后还有一个&quot;要不要继续&quot;的决策点。</p> <h3 id="场景二-需求模糊-需要边探索边明确"><a href="#场景二-需求模糊-需要边探索边明确" class="header-anchor">#</a> 场景二：需求模糊，需要边探索边明确</h3> <p>你只有一个大方向——&quot;首页太慢了&quot;、&quot;搜索体验不好&quot;——但不确定具体该怎么做。</p> <p><strong>推荐路径：</strong></p> <div class="language- extra-class"><pre class="language-text"><code>/opsx:explore → /opsx:new → /opsx:continue → ... → /opsx:apply → /opsx:archive
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>You: /opsx:explore 首页加载时间超过 3 秒，用户反馈很多。
+     帮我分析一下瓶颈在哪，有哪些优化方向
+
+AI:  Investigating your codebase...
+
+     Found performance bottlenecks:
+     1. Homepage fetches 5 API endpoints sequentially (not parallel)
+     2. Product images are unoptimized PNGs (avg 2.3MB each)
+     3. No code splitting — main bundle is 1.8MB
+     4. SSR is disabled, full client-side rendering
+
+     Recommended priority:
+     1. Parallelize API calls (quick win, ~40% improvement)
+     2. Image optimization pipeline (medium effort, big impact)
+     3. Code splitting (one-time setup, ongoing benefit)
+     4. SSR (largest effort, evaluate ROI separately)
+
+You: 先做第 1 和第 2 个吧，第 3 个后面再说。
+
+You: /opsx:new optimize-homepage-loading
+
+AI:  Created openspec/changes/optimize-homepage-loading/
+     Ready to create: proposal
+
+You: /opsx:continue optimize-homepage-loading
+
+AI:  Creating proposal.md...
+     ✓ Scope: parallelize API calls + image optimization pipeline
+     Next artifact: specs
+
+You: （审查 proposal，范围 OK）
+
+You: /opsx:continue optimize-homepage-loading
+
+AI:  Creating specs/...
+     ✓ specs/homepage-performance.md created
+     Key requirements:
+     - Homepage MUST load within 1.5 seconds on 4G
+     - Images MUST be served as WebP with fallback
+     - API calls MUST execute in parallel
+     Next artifact: design
+
+You: （specs 写得挺具体，加个一条：图片要支持 lazy loading）
+     （手动编辑 specs/homepage-performance.md，加上 lazy loading 要求）
+
+You: /opsx:continue optimize-homepage-loading
+
+AI:  Creating design.md... (incorporating your lazy loading addition)
+     ✓ design.md created
+     Next artifact: tasks
+
+You: /opsx:continue optimize-homepage-loading
+
+AI:  ✓ tasks.md — 7 implementation tasks
+     All planning artifacts complete.
+
+You: /opsx:apply optimize-homepage-loading
+...
+</code></pre></div><p>为什么用 continue 而不是 ff？因为需求本身就不清晰，每一步生成的工件都可能需要你手动修正。continue 给你在每个工件节点上审查和调整的机会，避免 AI 在错误的方向上一路狂奔。</p> <h3 id="场景三-做到一半被打断-怎么继续"><a href="#场景三-做到一半被打断-怎么继续" class="header-anchor">#</a> 场景三：做到一半被打断，怎么继续</h3> <p>昨天做了一半的功能，今天打开新对话要继续。或者临时切去修了个 Bug，现在想切回来。</p> <p><strong>推荐路径：</strong></p> <div class="language- extra-class"><pre class="language-text"><code>（新对话）→ /opsx:apply &lt;change-name&gt;
+</code></pre></div><p>这是 OpenSpec 最实用的价值之一。因为所有规格和任务清单都以文件形式存在项目里，AI 不需要你重新描述上下文——它直接读 tasks.md，看哪些任务已经打了勾、哪些还没完成，然后从断点继续：</p> <div class="language- extra-class"><pre class="language-text"><code>You: /opsx:apply add-payment-gateway
+
+AI:  Reading tasks.md... Found 10 tasks, 6 completed.
+
+     Resuming from task 7: Add webhook handler for payment events
+     ✓ Created src/webhooks/stripe-handler.ts
+     ✓ Added signature verification
+
+     Working on task 8: Implement refund flow
+     ...
+</code></pre></div><p>如果被打断期间你手动改了部分代码，AI 也能感知实际代码状态，智能跳过已完成的部分。</p> <p>想在继续之前调整方案？先看看当前进度：</p> <div class="language-bash extra-class"><pre class="language-bash"><code>openspec status add-payment-gateway
+</code></pre></div><p>然后直接编辑 openspec/changes/add-payment-gateway/tasks.md——增删任务条目、调整顺序都行——再执行 /opsx:apply。</p> <h3 id="场景四-apply-跑完-发现需求没做完或实现有问题"><a href="#场景四-apply-跑完-发现需求没做完或实现有问题" class="header-anchor">#</a> 场景四：apply 跑完，发现需求没做完或实现有问题</h3> <p>apply 执行完了，但看了眼代码，感觉哪里不对——有个需求没实现、逻辑有问题，或者你想在原有基础上再加点东西。</p> <p>这其实是两类情况，但处理方式都一样：直接改工件文件，然后重新执行 /opsx:apply。</p> <p>OpenSpec 的任务清单不是一次性的——tasks.md 你随时可以编辑，apply 每次都会检查哪些任务未完成，从那里接着跑。</p> <p><strong>情况一：发现 AI 漏做了某个需求</strong></p> <p>打开 <code>openspec/changes/&lt;change-name&gt;/tasks.md</code>，把漏掉的需求补进去（取消勾选或新增任务条目），然后重新 apply：</p> <div class="language- extra-class"><pre class="language-text"><code>You: /opsx:apply add-dark-mode
+
+AI:  Reading tasks.md... Found 7 tasks, 6 completed.
+
+     Working on task 7: Add theme toggle to mobile nav menu
+     ✓ Updated MobileNav component to include theme switcher
+     All 7 tasks complete!
+</code></pre></div><p>如果是比较大的需求遗漏，也可以先更新一下 specs/ 里的 Delta Specs，把漏掉的行为描述补上，再让 AI 重新生成 tasks：</p> <div class="language- extra-class"><pre class="language-text"><code>You: /opsx:continue add-dark-mode
+
+AI:  tasks.md already exists — regenerating based on updated specs...
+     ✓ tasks.md updated — 9 implementation tasks (was 6)
+     Ready for /opsx:apply
+</code></pre></div><p><strong>情况二：实现有问题，想指出来让 AI 修</strong></p> <p>先用 verify 让 AI 自己扫一遍，它会帮你列出实现和规格之间的出入：</p> <div class="language- extra-class"><pre class="language-text"><code>You: /opsx:verify add-dark-mode
+
+AI:  Verifying implementation against specs...
+
+     ✅ Completeness: 6/6 tasks done
+     ⚠️ Correctness: WARNING — theme preference not persisted across sessions
+        (spec requires saving to localStorage, current code only uses in-memory state)
+     ✅ Coherence: Consistent use of CSS variables
+
+     1 issue found.
+</code></pre></div><p>也可以直接描述你发现的问题，让 AI 在当前对话里修：</p> <div class="language- extra-class"><pre class="language-text"><code>You: 深色模式下代码块的背景色还是白的，应该跟随主题变
+
+AI:  Found the issue — CodeBlock component has a hardcoded background-color.
+     Fixing...
+     ✓ Updated CodeBlock to use CSS variable --code-bg
+</code></pre></div><p>修完之后，记得在 tasks.md 里补一条对应的任务并标为完成，保持工件和代码的同步——这样归档时 verify 才干净。</p> <p><strong>情况三：做着做着想追加新需求</strong></p> <p>如果新增的需求跟这个变更强相关，直接往 specs/ 和 tasks.md 里加，继续 apply。</p> <p>如果是一个独立的新功能——比如&quot;深色模式做好了，顺便想加个字体大小调节&quot;——建议另开一个变更，别把两件事混在一起：</p> <div class="language- extra-class"><pre class="language-text"><code>You: /opsx:propose add-font-size-control 支持在设置里调整正文字体大小，
+     S/M/L 三档，持久化到 localStorage
+</code></pre></div><p>判断标准很简单：如果这个新需求拿掉了，原来的变更还是完整的，就单开一个变更。</p> <h3 id="场景五-纯技术调研-不急着动手"><a href="#场景五-纯技术调研-不急着动手" class="header-anchor">#</a> 场景五：纯技术调研，不急着动手</h3> <p>还在评估阶段，想让 AI 帮你搞清楚某个问题域，产出决策依据。</p> <p><strong>推荐路径：</strong></p> <div class="language- extra-class"><pre class="language-text"><code>/opsx:explore → （多轮对话）→ （方向确定后再 /opsx:propose 或 /opsx:new）
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>You: /opsx:explore 我们的用户量在增长，目前的 PostgreSQL 单库架构
+     能撑到什么规模？如果要做读写分离或分库，大概什么时候开始准备？
+
+AI:  Let me analyze your current database usage patterns...
+
+     Current state:
+     - Single PostgreSQL 14 instance
+     - 47 tables, largest table: events (12M rows)
+     - Average query latency: 23ms, P99: 180ms
+     - Connection pool: 20 connections, peak usage 60%
+
+     Growth projection (based on git history):
+     - Events table growing ~500K rows/month
+     - At current rate, hitting performance cliff around 50M rows
+       (estimated: 8 months from now)
+
+     Options:
+     1. Read replicas (lowest effort, buys 12-18 months)
+     2. Partitioning events table by date (medium effort)
+     3. Full sharding (overkill for current scale)
+
+     Recommendation: Start with option 1 + 2 in ~3 months,
+     before growth compounds.
+
+You: 如果做读写分离，对现有代码改动大吗？
+
+AI:  Looking at your data access layer...
+     ...
+</code></pre></div><p>explore 全程不产生任何文件，对项目零副作用。你可以一直探索，直到心里有谱了再决定要不要正式立项。</p> <h3 id="场景六-并行开发多个功能"><a href="#场景六-并行开发多个功能" class="header-anchor">#</a> 场景六：并行开发多个功能</h3> <p>手头同时推进好几个功能，需要在它们之间自由切换。</p> <p><strong>推荐路径：</strong></p> <div class="language- extra-class"><pre class="language-text"><code>/opsx:propose feature-a → /opsx:apply feature-a → （切走）
+/opsx:propose feature-b → /opsx:apply feature-b → （切回）
+/opsx:apply feature-a → ...
+/opsx:bulk-archive
+</code></pre></div><p>因为每个变更独立存放在 <code>openspec/changes/&lt;name&gt;/</code> 里，完全隔离，切换上下文只需要在 apply 时指定不同的变更名。用 <code>openspec list</code> 随时看看都有哪些活跃变更：</p> <div class="language-bash extra-class"><pre class="language-bash"><code>$ openspec list
+
+CHANGES
+  add-dark-mode       ████████░░ <span class="token number">6</span>/8 tasks
+  fix-login-timeout   ██████████ <span class="token number">3</span>/3 tasks ✓
+  add-user-profile    ████░░░░░░ <span class="token number">2</span>/7 tasks
+</code></pre></div><p>全部完成后 /opsx:bulk-archive 一次性归档，它会自动检测不同变更的 Delta Specs 之间是否有冲突。</p> <h3 id="场景七-存量项目引入-openspec"><a href="#场景七-存量项目引入-openspec" class="header-anchor">#</a> 场景七：存量项目引入 OpenSpec</h3> <p>项目已经有大量代码，没有任何规格文档，想开始用 OpenSpec。</p> <p>不必一次性补齐所有规格，可以按&quot;用到哪补到哪&quot;的方式渐进推进：</p> <ol><li><code>openspec init</code> 初始化</li> <li><code>/opsx:explore</code> 让 AI 分析现有代码，按模块梳理当前行为</li> <li>基于探索结果，逐步往 openspec/specs/ 里写规格（AI 可以帮你生成初稿）</li> <li>后续新功能按正常流程走——每次归档都会让主规格更完整一点</li></ol> <p>几个变更归档之后，你会发现 openspec/specs/ 已经积累了一份相当可用的系统行为文档，而这一切都是在正常开发过程中自然生长出来的，没有额外负担。</p> <hr> <h2 id="六、归档-变更的完整生命周期"><a href="#六、归档-变更的完整生命周期" class="header-anchor">#</a> 六、归档：变更的完整生命周期</h2> <p>归档不只是&quot;把文件夹移走&quot;，它是 OpenSpec 工作流中让知识积累真正发生的关键环节。</p> <h3 id="归档做了什么"><a href="#归档做了什么" class="header-anchor">#</a> 归档做了什么</h3> <ol><li><strong>合并 Delta Specs</strong> → openspec/specs/ 主规格得到更新，ADDED 的内容追加进来，MODIFIED 的替换旧版，REMOVED 的被移除</li> <li><strong>移动变更目录</strong> → 带时间戳归档到 openspec/archive/，所有工件完整保留</li> <li><strong>关闭变更</strong> → 从 openspec list 中消失，变更生命周期结束</li></ol> <h3 id="推荐的归档流程"><a href="#推荐的归档流程" class="header-anchor">#</a> 推荐的归档流程</h3> <div class="language- extra-class"><pre class="language-text"><code>/opsx:apply → /opsx:verify → （修复问题）→ /opsx:archive
+</code></pre></div><p>别急着归档。verify 能帮你抓住实现和规格之间的不一致——比如 spec 写了&quot;支持批量删除&quot;但实际只实现了单个删除，或者 design 里说用 Redis 缓存但代码里直接查数据库。这些问题在归档前修复的成本远低于归档后。</p> <h3 id="归档时的注意事项"><a href="#归档时的注意事项" class="header-anchor">#</a> 归档时的注意事项</h3> <ul><li>归档会提醒但不会阻止任务未全部完成的情况——如果你确认部分任务不再需要，可以手动标为完成或直接归档</li> <li>如果 Delta Specs 还没有 sync 过，archive 会在归档时自动同步</li> <li>归档是不可逆的（虽然历史目录保留了所有内容），所以最好先 verify 一下</li></ul> <hr> <h2 id="七、两种-profile-怎么选"><a href="#七、两种-profile-怎么选" class="header-anchor">#</a> 七、两种 Profile 怎么选</h2> <table><thead><tr><th>你的工作方式</th> <th>推荐 Profile</th> <th>典型路径</th></tr></thead> <tbody><tr><td>需求通常清晰，追求效率</td> <td>Core（默认）</td> <td>propose → apply → archive</td></tr> <tr><td>想逐步审查每个工件</td> <td>Expanded</td> <td>new → continue → apply → verify → archive</td></tr> <tr><td>需求常常不明确</td> <td>Expanded</td> <td>explore → new → continue → apply</td></tr> <tr><td>经常并行多个功能</td> <td>Expanded</td> <td>多个独立变更 + bulk-archive</td></tr></tbody></table> <p><strong>建议</strong>：从 Core 开始用。当你发现自己频繁需要&quot;我想先看看 proposal 再继续&quot;或&quot;生成完工件后我要改改再走下一步&quot;的时候，再切到 Expanded。</p> <hr> <h2 id="八、最佳实践"><a href="#八、最佳实践" class="header-anchor">#</a> 八、最佳实践</h2> <h3 id="_1-归档前先-verify"><a href="#_1-归档前先-verify" class="header-anchor">#</a> 1. 归档前先 verify</h3> <p>养成习惯：apply 完了之后，别直接 archive，先跑一次 verify。它能帮你抓住很多&quot;以为做完了其实没做完&quot;的情况——漏掉的边界条件、没对上的规格描述、不一致的命名。修复这些问题的成本在这个阶段最低。</p> <h3 id="_2-一个变更-一个职责"><a href="#_2-一个变更-一个职责" class="header-anchor">#</a> 2. 一个变更，一个职责</h3> <p>变更名称应该能一句话说清楚：add-user-avatar、fix-login-timeout、refactor-payment-module。如果你发现自己写不出一个简洁的名字，说明这个变更可能包含了太多不相关的内容，考虑拆分。</p> <p><strong>反面教材</strong>：misc-improvements、feature-1、wip。</p> <h3 id="_3-审查工件-别急着-apply"><a href="#_3-审查工件-别急着-apply" class="header-anchor">#</a> 3. 审查工件，别急着 apply</h3> <p>propose 或 ff 生成工件后，花几分钟读一遍——尤其是 tasks.md（任务拆分合不合理？颗粒度够不够细？）和 specs/（边界条件覆盖了吗？有没有遗漏？）。</p> <p>在规格层面改一行字，可能省下代码层面改一百行。</p> <h3 id="_4-用-config-yaml-的-context-减少重复"><a href="#_4-用-config-yaml-的-context-减少重复" class="header-anchor">#</a> 4. 用 config.yaml 的 context 减少重复</h3> <p>你项目的技术栈、代码规范、API 风格这些背景信息，不要每次在对话里重复。写进 config.yaml 的 context 字段，一次配置，所有变更自动继承。</p> <h3 id="_5-apply-前开一个新对话"><a href="#_5-apply-前开一个新对话" class="header-anchor">#</a> 5. apply 前开一个新对话</h3> <p>在跑 /opsx:apply 之前，建议开一个新的对话窗口（清空历史上下文）。让 AI 从干净的状态读取工件文件去实现，避免之前探索和讨论阶段的对话噪音影响代码质量。</p> <h3 id="_6-选择高推理能力的模型"><a href="#_6-选择高推理能力的模型" class="header-anchor">#</a> 6. 选择高推理能力的模型</h3> <p>OpenSpec 的工件质量取决于模型的推理能力。在 propose、ff、continue 这类需要理解需求全貌并做出设计决策的环节，尽量用 Claude Opus、GPT-4 这类高推理模型。apply 阶段（纯执行）对模型要求相对低一些。</p> <h3 id="_7-更新还是新建-用这个判断标准"><a href="#_7-更新还是新建-用这个判断标准" class="header-anchor">#</a> 7. 更新还是新建？用这个判断标准</h3> <p>在已有变更上迭代还是另起一个新变更？问自己这几个问题：</p> <table><thead><tr><th>情况</th> <th>选择</th></tr></thead> <tbody><tr><td>意图没变，只是执行方案要调整</td> <td>更新现有变更</td></tr> <tr><td>范围在缩小（先做 MVP）</td> <td>更新现有变更</td></tr> <tr><td>做着做着发现要做的完全不是一回事了</td> <td>新建变更</td></tr> <tr><td>范围膨胀到可以拆成两个独立功能</td> <td>新建变更</td></tr> <tr><td>原来的变更已经可以独立交付了</td> <td>归档旧的，新建新的</td></tr></tbody></table> <hr> <h2 id="九、命令速查表"><a href="#九、命令速查表" class="header-anchor">#</a> 九、命令速查表</h2> <table><thead><tr><th>命令</th> <th>说明</th> <th>场景</th></tr></thead> <tbody><tr><td>/opsx:propose</td> <td>一步生成完整变更</td> <td>需求清晰</td></tr> <tr><td>/opsx:explore</td> <td>探索调研，不产生文件</td> <td>需求模糊、技术选型</td></tr> <tr><td>/opsx:apply</td> <td>按任务清单写代码</td> <td>实现阶段</td></tr> <tr><td>/opsx:archive</td> <td>归档，合并规格</td> <td>功能完成收尾</td></tr> <tr><td>/opsx:new</td> <td>创建变更骨架</td> <td>手动逐步推进</td></tr> <tr><td>/opsx:continue</td> <td>生成下一个工件</td> <td>逐步审查</td></tr> <tr><td>/opsx:ff</td> <td>快进生成所有工件</td> <td>确认方向后加速</td></tr> <tr><td>/opsx:verify</td> <td>三维度验证实现</td> <td>归档前质量检查</td></tr> <tr><td>/opsx:sync</td> <td>只同步规格不归档</td> <td>并行变更需引用</td></tr> <tr><td>/opsx:bulk-archive</td> <td>批量归档</td> <td>多功能统一收尾</td></tr> <tr><td>/opsx:onboard</td> <td>交互式教程</td> <td>新手上手</td></tr> <tr><td>openspec list</td> <td>查看活跃变更</td> <td>日常管理</td></tr> <tr><td>openspec status</td> <td>查看工件完成度</td> <td>了解当前进度</td></tr> <tr><td>openspec view</td> <td>交互式仪表盘</td> <td>浏览变更和规格</td></tr> <tr><td>openspec validate</td> <td>验证格式</td> <td>检查规格质量</td></tr></tbody></table> <hr> <h2 id="参考资料"><a href="#参考资料" class="header-anchor">#</a> 参考资料</h2> <ul><li><a href="https://github.com/Fission-AI/OpenSpec" target="_blank" rel="noopener noreferrer">OpenSpec GitHub<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li> <li><a href="https://github.com/Fission-AI/OpenSpec#getting-started" target="_blank" rel="noopener noreferrer">Getting Started<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li> <li><a href="https://github.com/Fission-AI/OpenSpec/blob/main/docs/workflows.md" target="_blank" rel="noopener noreferrer">Workflows<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li> <li><a href="https://github.com/Fission-AI/OpenSpec/blob/main/docs/commands.md" target="_blank" rel="noopener noreferrer">Commands Reference<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li> <li><a href="https://github.com/Fission-AI/OpenSpec/blob/main/docs/cli.md" target="_blank" rel="noopener noreferrer">CLI Reference<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li> <li><a href="https://github.com/Fission-AI/OpenSpec/blob/main/docs/concepts.md" target="_blank" rel="noopener noreferrer">Concepts<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li> <li><a href="https://github.com/Fission-AI/OpenSpec/blob/main/docs/customization.md" target="_blank" rel="noopener noreferrer">Customization<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul> <hr> <!----></div> <footer class="page-edit" style="margin:0;"><div class="edit-link"><a href="https://github.com/wuhobin/edit/master/Vibe coding/Skill分享/OpenSpec 完全使用指南：用规格驱动 AI 编码.md" target="_blank" rel="noopener noreferrer">完善页面</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div> <div class="last-updated"><span class="prefix">最近更新:</span> <span class="time">3/17/2026, 12:14:43 AM</span></div></footer> <!----></div> <div class="toc-container-sidebar"><div class="pos-box"><div class="icon-arrow"></div> <div class="scroll-box" style="max-height:86vh"><div style="font-weight:bold;">OpenSpec 完全使用指南：用规格驱动 AI 编码</div> <hr> <div class="toc-box"><ul class="toc-sidebar-links"><li><a href="/openspec-%E5%AE%8C%E5%85%A8%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97-%E7%94%A8%E8%A7%84%E6%A0%BC%E9%A9%B1%E5%8A%A8-ai-%E7%BC%96%E7%A0%81/#一、ai-编码的真正瓶颈不是代码-是对齐" class="toc-sidebar-link">一、AI 编码的真正瓶颈不是代码，是对齐</a><ul class="toc-sidebar-sub-headers"></ul></li><li><a href="/openspec-%E5%AE%8C%E5%85%A8%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97-%E7%94%A8%E8%A7%84%E6%A0%BC%E9%A9%B1%E5%8A%A8-ai-%E7%BC%96%E7%A0%81/#二、安装与初始化" class="toc-sidebar-link">二、安装与初始化</a><ul class="toc-sidebar-sub-headers"><li class="toc-sidebar-sub-header"><a href="/openspec-%E5%AE%8C%E5%85%A8%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97-%E7%94%A8%E8%A7%84%E6%A0%BC%E9%A9%B1%E5%8A%A8-ai-%E7%BC%96%E7%A0%81/#前置要求" class="toc-sidebar-link">前置要求</a></li><li class="toc-sidebar-sub-header"><a href="/openspec-%E5%AE%8C%E5%85%A8%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97-%E7%94%A8%E8%A7%84%E6%A0%BC%E9%A9%B1%E5%8A%A8-ai-%E7%BC%96%E7%A0%81/#安装" class="toc-sidebar-link">安装</a></li><li class="toc-sidebar-sub-header"><a href="/openspec-%E5%AE%8C%E5%85%A8%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97-%E7%94%A8%E8%A7%84%E6%A0%BC%E9%A9%B1%E5%8A%A8-ai-%E7%BC%96%E7%A0%81/#初始化项目" class="toc-sidebar-link">初始化项目</a></li><li class="toc-sidebar-sub-header"><a href="/openspec-%E5%AE%8C%E5%85%A8%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97-%E7%94%A8%E8%A7%84%E6%A0%BC%E9%A9%B1%E5%8A%A8-ai-%E7%BC%96%E7%A0%81/#配置项目上下文-强烈推荐" class="toc-sidebar-link">配置项目上下文（强烈推荐）</a></li><li class="toc-sidebar-sub-header"><a href="/openspec-%E5%AE%8C%E5%85%A8%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97-%E7%94%A8%E8%A7%84%E6%A0%BC%E9%A9%B1%E5%8A%A8-ai-%E7%BC%96%E7%A0%81/#启用扩展命令" class="toc-sidebar-link">启用扩展命令</a></li></ul></li><li><a href="/openspec-%E5%AE%8C%E5%85%A8%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97-%E7%94%A8%E8%A7%84%E6%A0%BC%E9%A9%B1%E5%8A%A8-ai-%E7%BC%96%E7%A0%81/#三、核心理念" class="toc-sidebar-link">三、核心理念</a><ul class="toc-sidebar-sub-headers"><li class="toc-sidebar-sub-header"><a href="/openspec-%E5%AE%8C%E5%85%A8%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97-%E7%94%A8%E8%A7%84%E6%A0%BC%E9%A9%B1%E5%8A%A8-ai-%E7%BC%96%E7%A0%81/#为什么要先写-规格-再写代码" class="toc-sidebar-link">为什么要先写&quot;规格&quot;再写代码？</a></li><li class="toc-sidebar-sub-header"><a href="/openspec-%E5%AE%8C%E5%85%A8%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97-%E7%94%A8%E8%A7%84%E6%A0%BC%E9%A9%B1%E5%8A%A8-ai-%E7%BC%96%E7%A0%81/#四个设计原则" class="toc-sidebar-link">四个设计原则</a></li><li class="toc-sidebar-sub-header"><a href="/openspec-%E5%AE%8C%E5%85%A8%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97-%E7%94%A8%E8%A7%84%E6%A0%BC%E9%A9%B1%E5%8A%A8-ai-%E7%BC%96%E7%A0%81/#两个核心概念-specs-和-changes" class="toc-sidebar-link">两个核心概念：Specs 和 Changes</a></li><li class="toc-sidebar-sub-header"><a href="/openspec-%E5%AE%8C%E5%85%A8%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97-%E7%94%A8%E8%A7%84%E6%A0%BC%E9%A9%B1%E5%8A%A8-ai-%E7%BC%96%E7%A0%81/#specs-到底长什么样" class="toc-sidebar-link">Specs 到底长什么样？</a></li><li class="toc-sidebar-sub-header"><a href="/openspec-%E5%AE%8C%E5%85%A8%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97-%E7%94%A8%E8%A7%84%E6%A0%BC%E9%A9%B1%E5%8A%A8-ai-%E7%BC%96%E7%A0%81/#工件-artifacts-从-为什么-到-怎么做" class="toc-sidebar-link">工件（Artifacts）：从&quot;为什么&quot;到&quot;怎么做&quot;</a></li><li class="toc-sidebar-sub-header"><a href="/openspec-%E5%AE%8C%E5%85%A8%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97-%E7%94%A8%E8%A7%84%E6%A0%BC%E9%A9%B1%E5%8A%A8-ai-%E7%BC%96%E7%A0%81/#delta-specs-改存量代码的秘密武器" class="toc-sidebar-link">Delta Specs：改存量代码的秘密武器</a></li><li class="toc-sidebar-sub-header"><a href="/openspec-%E5%AE%8C%E5%85%A8%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97-%E7%94%A8%E8%A7%84%E6%A0%BC%E9%A9%B1%E5%8A%A8-ai-%E7%BC%96%E7%A0%81/#schema-定义你自己的工作流" class="toc-sidebar-link">Schema：定义你自己的工作流</a></li><li class="toc-sidebar-sub-header"><a href="/openspec-%E5%AE%8C%E5%85%A8%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97-%E7%94%A8%E8%A7%84%E6%A0%BC%E9%A9%B1%E5%8A%A8-ai-%E7%BC%96%E7%A0%81/#渐进式严格-不需要一步到位" class="toc-sidebar-link">渐进式严格：不需要一步到位</a></li></ul></li><li><a href="/openspec-%E5%AE%8C%E5%85%A8%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97-%E7%94%A8%E8%A7%84%E6%A0%BC%E9%A9%B1%E5%8A%A8-ai-%E7%BC%96%E7%A0%81/#四、命令详解" class="toc-sidebar-link">四、命令详解</a><ul class="toc-sidebar-sub-headers"><li class="toc-sidebar-sub-header"><a href="/openspec-%E5%AE%8C%E5%85%A8%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97-%E7%94%A8%E8%A7%84%E6%A0%BC%E9%A9%B1%E5%8A%A8-ai-%E7%BC%96%E7%A0%81/#核心命令-core-profile-默认可用" class="toc-sidebar-link">核心命令（Core Profile，默认可用）</a></li><li class="toc-sidebar-sub-header toc-sidebar-depth-4"><a href="/openspec-%E5%AE%8C%E5%85%A8%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97-%E7%94%A8%E8%A7%84%E6%A0%BC%E9%A9%B1%E5%8A%A8-ai-%E7%BC%96%E7%A0%81/#opsx-propose-需求清晰时-一步到位" class="toc-sidebar-link">/opsx:propose — 需求清晰时，一步到位</a></li><li class="toc-sidebar-sub-header toc-sidebar-depth-4"><a href="/openspec-%E5%AE%8C%E5%85%A8%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97-%E7%94%A8%E8%A7%84%E6%A0%BC%E9%A9%B1%E5%8A%A8-ai-%E7%BC%96%E7%A0%81/#opsx-explore-不确定的时候-先探索" class="toc-sidebar-link">/opsx:explore — 不确定的时候，先探索</a></li><li class="toc-sidebar-sub-header toc-sidebar-depth-4"><a href="/openspec-%E5%AE%8C%E5%85%A8%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97-%E7%94%A8%E8%A7%84%E6%A0%BC%E9%A9%B1%E5%8A%A8-ai-%E7%BC%96%E7%A0%81/#opsx-apply-按清单执行实现" class="toc-sidebar-link">/opsx:apply — 按清单执行实现</a></li><li class="toc-sidebar-sub-header toc-sidebar-depth-4"><a href="/openspec-%E5%AE%8C%E5%85%A8%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97-%E7%94%A8%E8%A7%84%E6%A0%BC%E9%A9%B1%E5%8A%A8-ai-%E7%BC%96%E7%A0%81/#opsx-archive-收尾归档" class="toc-sidebar-link">/opsx:archive — 收尾归档</a></li><li class="toc-sidebar-sub-header"><a href="/openspec-%E5%AE%8C%E5%85%A8%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97-%E7%94%A8%E8%A7%84%E6%A0%BC%E9%A9%B1%E5%8A%A8-ai-%E7%BC%96%E7%A0%81/#扩展命令-需启用-expanded-profile" class="toc-sidebar-link">扩展命令（需启用 Expanded Profile）</a></li><li class="toc-sidebar-sub-header toc-sidebar-depth-4"><a href="/openspec-%E5%AE%8C%E5%85%A8%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97-%E7%94%A8%E8%A7%84%E6%A0%BC%E9%A9%B1%E5%8A%A8-ai-%E7%BC%96%E7%A0%81/#opsx-new-只建骨架-不急着填内容" class="toc-sidebar-link">/opsx:new — 只建骨架，不急着填内容</a></li><li class="toc-sidebar-sub-header toc-sidebar-depth-4"><a href="/openspec-%E5%AE%8C%E5%85%A8%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97-%E7%94%A8%E8%A7%84%E6%A0%BC%E9%A9%B1%E5%8A%A8-ai-%E7%BC%96%E7%A0%81/#opsx-continue-一步一步来-每步都能审查" class="toc-sidebar-link">/opsx:continue — 一步一步来，每步都能审查</a></li><li class="toc-sidebar-sub-header toc-sidebar-depth-4"><a href="/openspec-%E5%AE%8C%E5%85%A8%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97-%E7%94%A8%E8%A7%84%E6%A0%BC%E9%A9%B1%E5%8A%A8-ai-%E7%BC%96%E7%A0%81/#opsx-ff-快进生成所有剩余工件" class="toc-sidebar-link">/opsx:ff — 快进生成所有剩余工件</a></li><li class="toc-sidebar-sub-header toc-sidebar-depth-4"><a href="/openspec-%E5%AE%8C%E5%85%A8%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97-%E7%94%A8%E8%A7%84%E6%A0%BC%E9%A9%B1%E5%8A%A8-ai-%E7%BC%96%E7%A0%81/#opsx-verify-归档前的质量检查" class="toc-sidebar-link">/opsx:verify — 归档前的质量检查</a></li><li class="toc-sidebar-sub-header toc-sidebar-depth-4"><a href="/openspec-%E5%AE%8C%E5%85%A8%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97-%E7%94%A8%E8%A7%84%E6%A0%BC%E9%A9%B1%E5%8A%A8-ai-%E7%BC%96%E7%A0%81/#opsx-sync-只同步规格-不归档" class="toc-sidebar-link">/opsx:sync — 只同步规格，不归档</a></li><li class="toc-sidebar-sub-header toc-sidebar-depth-4"><a href="/openspec-%E5%AE%8C%E5%85%A8%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97-%E7%94%A8%E8%A7%84%E6%A0%BC%E9%A9%B1%E5%8A%A8-ai-%E7%BC%96%E7%A0%81/#opsx-bulk-archive-并行开发后的批量收尾" class="toc-sidebar-link">/opsx:bulk-archive — 并行开发后的批量收尾</a></li><li class="toc-sidebar-sub-header toc-sidebar-depth-4"><a href="/openspec-%E5%AE%8C%E5%85%A8%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97-%E7%94%A8%E8%A7%84%E6%A0%BC%E9%A9%B1%E5%8A%A8-ai-%E7%BC%96%E7%A0%81/#opsx-onboard-交互式上手教程" class="toc-sidebar-link">/opsx:onboard — 交互式上手教程</a></li><li class="toc-sidebar-sub-header"><a href="/openspec-%E5%AE%8C%E5%85%A8%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97-%E7%94%A8%E8%A7%84%E6%A0%BC%E9%A9%B1%E5%8A%A8-ai-%E7%BC%96%E7%A0%81/#cli-工具命令" class="toc-sidebar-link">CLI 工具命令</a></li></ul></li><li><a href="/openspec-%E5%AE%8C%E5%85%A8%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97-%E7%94%A8%E8%A7%84%E6%A0%BC%E9%A9%B1%E5%8A%A8-ai-%E7%BC%96%E7%A0%81/#五、不同场景下怎么用-实战指南" class="toc-sidebar-link">五、不同场景下怎么用：实战指南</a><ul class="toc-sidebar-sub-headers"><li class="toc-sidebar-sub-header"><a href="/openspec-%E5%AE%8C%E5%85%A8%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97-%E7%94%A8%E8%A7%84%E6%A0%BC%E9%A9%B1%E5%8A%A8-ai-%E7%BC%96%E7%A0%81/#场景一-需求清晰-直接开干" class="toc-sidebar-link">场景一：需求清晰，直接开干</a></li><li class="toc-sidebar-sub-header"><a href="/openspec-%E5%AE%8C%E5%85%A8%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97-%E7%94%A8%E8%A7%84%E6%A0%BC%E9%A9%B1%E5%8A%A8-ai-%E7%BC%96%E7%A0%81/#场景二-需求模糊-需要边探索边明确" class="toc-sidebar-link">场景二：需求模糊，需要边探索边明确</a></li><li class="toc-sidebar-sub-header"><a href="/openspec-%E5%AE%8C%E5%85%A8%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97-%E7%94%A8%E8%A7%84%E6%A0%BC%E9%A9%B1%E5%8A%A8-ai-%E7%BC%96%E7%A0%81/#场景三-做到一半被打断-怎么继续" class="toc-sidebar-link">场景三：做到一半被打断，怎么继续</a></li><li class="toc-sidebar-sub-header"><a href="/openspec-%E5%AE%8C%E5%85%A8%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97-%E7%94%A8%E8%A7%84%E6%A0%BC%E9%A9%B1%E5%8A%A8-ai-%E7%BC%96%E7%A0%81/#场景四-apply-跑完-发现需求没做完或实现有问题" class="toc-sidebar-link">场景四：apply 跑完，发现需求没做完或实现有问题</a></li><li class="toc-sidebar-sub-header"><a href="/openspec-%E5%AE%8C%E5%85%A8%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97-%E7%94%A8%E8%A7%84%E6%A0%BC%E9%A9%B1%E5%8A%A8-ai-%E7%BC%96%E7%A0%81/#场景五-纯技术调研-不急着动手" class="toc-sidebar-link">场景五：纯技术调研，不急着动手</a></li><li class="toc-sidebar-sub-header"><a href="/openspec-%E5%AE%8C%E5%85%A8%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97-%E7%94%A8%E8%A7%84%E6%A0%BC%E9%A9%B1%E5%8A%A8-ai-%E7%BC%96%E7%A0%81/#场景六-并行开发多个功能" class="toc-sidebar-link">场景六：并行开发多个功能</a></li><li class="toc-sidebar-sub-header"><a href="/openspec-%E5%AE%8C%E5%85%A8%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97-%E7%94%A8%E8%A7%84%E6%A0%BC%E9%A9%B1%E5%8A%A8-ai-%E7%BC%96%E7%A0%81/#场景七-存量项目引入-openspec" class="toc-sidebar-link">场景七：存量项目引入 OpenSpec</a></li></ul></li><li><a href="/openspec-%E5%AE%8C%E5%85%A8%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97-%E7%94%A8%E8%A7%84%E6%A0%BC%E9%A9%B1%E5%8A%A8-ai-%E7%BC%96%E7%A0%81/#六、归档-变更的完整生命周期" class="toc-sidebar-link">六、归档：变更的完整生命周期</a><ul class="toc-sidebar-sub-headers"><li class="toc-sidebar-sub-header"><a href="/openspec-%E5%AE%8C%E5%85%A8%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97-%E7%94%A8%E8%A7%84%E6%A0%BC%E9%A9%B1%E5%8A%A8-ai-%E7%BC%96%E7%A0%81/#归档做了什么" class="toc-sidebar-link">归档做了什么</a></li><li class="toc-sidebar-sub-header"><a href="/openspec-%E5%AE%8C%E5%85%A8%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97-%E7%94%A8%E8%A7%84%E6%A0%BC%E9%A9%B1%E5%8A%A8-ai-%E7%BC%96%E7%A0%81/#推荐的归档流程" class="toc-sidebar-link">推荐的归档流程</a></li><li class="toc-sidebar-sub-header"><a href="/openspec-%E5%AE%8C%E5%85%A8%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97-%E7%94%A8%E8%A7%84%E6%A0%BC%E9%A9%B1%E5%8A%A8-ai-%E7%BC%96%E7%A0%81/#归档时的注意事项" class="toc-sidebar-link">归档时的注意事项</a></li></ul></li><li><a href="/openspec-%E5%AE%8C%E5%85%A8%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97-%E7%94%A8%E8%A7%84%E6%A0%BC%E9%A9%B1%E5%8A%A8-ai-%E7%BC%96%E7%A0%81/#七、两种-profile-怎么选" class="toc-sidebar-link">七、两种 Profile 怎么选</a><ul class="toc-sidebar-sub-headers"></ul></li><li><a href="/openspec-%E5%AE%8C%E5%85%A8%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97-%E7%94%A8%E8%A7%84%E6%A0%BC%E9%A9%B1%E5%8A%A8-ai-%E7%BC%96%E7%A0%81/#八、最佳实践" class="toc-sidebar-link">八、最佳实践</a><ul class="toc-sidebar-sub-headers"><li class="toc-sidebar-sub-header"><a href="/openspec-%E5%AE%8C%E5%85%A8%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97-%E7%94%A8%E8%A7%84%E6%A0%BC%E9%A9%B1%E5%8A%A8-ai-%E7%BC%96%E7%A0%81/#_1-归档前先-verify" class="toc-sidebar-link">1. 归档前先 verify</a></li><li class="toc-sidebar-sub-header"><a href="/openspec-%E5%AE%8C%E5%85%A8%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97-%E7%94%A8%E8%A7%84%E6%A0%BC%E9%A9%B1%E5%8A%A8-ai-%E7%BC%96%E7%A0%81/#_2-一个变更-一个职责" class="toc-sidebar-link">2. 一个变更，一个职责</a></li><li class="toc-sidebar-sub-header"><a href="/openspec-%E5%AE%8C%E5%85%A8%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97-%E7%94%A8%E8%A7%84%E6%A0%BC%E9%A9%B1%E5%8A%A8-ai-%E7%BC%96%E7%A0%81/#_3-审查工件-别急着-apply" class="toc-sidebar-link">3. 审查工件，别急着 apply</a></li><li class="toc-sidebar-sub-header"><a href="/openspec-%E5%AE%8C%E5%85%A8%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97-%E7%94%A8%E8%A7%84%E6%A0%BC%E9%A9%B1%E5%8A%A8-ai-%E7%BC%96%E7%A0%81/#_4-用-config-yaml-的-context-减少重复" class="toc-sidebar-link">4. 用 config.yaml 的 context 减少重复</a></li><li class="toc-sidebar-sub-header"><a href="/openspec-%E5%AE%8C%E5%85%A8%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97-%E7%94%A8%E8%A7%84%E6%A0%BC%E9%A9%B1%E5%8A%A8-ai-%E7%BC%96%E7%A0%81/#_5-apply-前开一个新对话" class="toc-sidebar-link">5. apply 前开一个新对话</a></li><li class="toc-sidebar-sub-header"><a href="/openspec-%E5%AE%8C%E5%85%A8%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97-%E7%94%A8%E8%A7%84%E6%A0%BC%E9%A9%B1%E5%8A%A8-ai-%E7%BC%96%E7%A0%81/#_6-选择高推理能力的模型" class="toc-sidebar-link">6. 选择高推理能力的模型</a></li><li class="toc-sidebar-sub-header"><a href="/openspec-%E5%AE%8C%E5%85%A8%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97-%E7%94%A8%E8%A7%84%E6%A0%BC%E9%A9%B1%E5%8A%A8-ai-%E7%BC%96%E7%A0%81/#_7-更新还是新建-用这个判断标准" class="toc-sidebar-link">7. 更新还是新建？用这个判断标准</a></li></ul></li><li><a href="/openspec-%E5%AE%8C%E5%85%A8%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97-%E7%94%A8%E8%A7%84%E6%A0%BC%E9%A9%B1%E5%8A%A8-ai-%E7%BC%96%E7%A0%81/#九、命令速查表" class="toc-sidebar-link">九、命令速查表</a><ul class="toc-sidebar-sub-headers"></ul></li><li><a href="/openspec-%E5%AE%8C%E5%85%A8%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97-%E7%94%A8%E8%A7%84%E6%A0%BC%E9%A9%B1%E5%8A%A8-ai-%E7%BC%96%E7%A0%81/#参考资料" class="toc-sidebar-link">参考资料</a><ul class="toc-sidebar-sub-headers"></ul></li></ul></div></div></div></div></div>  <main class="footer-con" data-v-351410f8> <div class="copy-right" data-v-351410f8><span class="name" data-v-351410f8>   |     </span> <a target="_blank" rel="noreferrer" class="footer-link copyright-link" data-v-351410f8>
+          
+        </a></div></main></main> <aside class="page-sidebar" data-v-0229cba4> <div class="page-side-toolbar" data-v-0229cba4></div>  </aside></div><div class="global-ui"><!----><!----></div></div>
+    <script src="/assets/js/app.d552c3fc.js" defer></script><script src="/assets/js/2.d050b5fb.js" defer></script><script src="/assets/js/35.569af5f1.js" defer></script>
+  </body>
+</html>
